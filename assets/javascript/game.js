@@ -4,11 +4,11 @@
     //array of words
     //blanks representing letters in selected word
     //if user guesses corect letter, replace space with letter
-    var wordList [] 
-    var lettersGuessed = [ ]
-    var guessesLeft = 10
-    var wins = 0
-    var losses = 0
+    var wordList = [];
+    var lettersGuessed = [ ];
+    var guessesLeft = 10;
+    var wins = 0;
+    var losses = 0;
     
 
 
@@ -21,7 +21,7 @@
         //console.log(randomWord);
         guessesLeft = 10;
         lettersGuessed.length = 0;
-    }
+    };
 
 
 
@@ -29,7 +29,8 @@
     //onkeyup save userGuess
     document.onkeyup = function(event){
         userGuess = event.key.toUpperCase();
-    }
+        console.log(userGuess);
+    };
     //compare user guess to letters in random word
     //if letter matches letter in word, replace space with letter
     //if letter doesnt match, amount of guesses remaining goes down by 1
