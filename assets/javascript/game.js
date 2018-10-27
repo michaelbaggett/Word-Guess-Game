@@ -27,6 +27,9 @@
 
 //click/key handlers
     //onkeyup save userGuess
+    document.onkeyup = function(event){
+        userGuess = event.key.toUpperCase();
+    }
     //compare user guess to letters in random word
     //if letter matches letter in word, replace space with letter
     //if letter doesnt match, amount of guesses remaining goes down by 1
