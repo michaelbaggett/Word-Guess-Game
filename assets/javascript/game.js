@@ -14,6 +14,7 @@ window.onload = function() {
     var losses = 0;
     
     var lettersGuessed = document.getElementById("you-guessed");
+    var guessAmount = document.getElementById("numOfGuessLeft");
 
 
 //function definitions
@@ -35,8 +36,13 @@ window.onload = function() {
         userGuess = event.key.toUpperCase();
         //console.log(userGuess);
         guessLog.push(userGuess);
+
+        if (userGuess !== wordList) {
+            guessesLeft--;
+        };
     //display user letter guess to page
     lettersGuessed.innerHTML = ("You have guessed: " + guessLog);
+    guessAmount.innerHTML = ("You have " + guessesLeft + " guesses remaining");
     //compare user guess to letters in random word
     //if letter matches letter in word, replace space with letter
     //if letter doesnt match, amount of guesses remaining goes down by 1
