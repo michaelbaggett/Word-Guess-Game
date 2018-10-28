@@ -1,5 +1,5 @@
 //on window load, begin script
-window.onload = function() {
+
 
 //variables:
 
@@ -25,92 +25,35 @@ window.onload = function() {
 
 //function definitions
     //this will generate our random word
+    function resetGame() {
     var randomWord = wordList[Math.floor(Math.random()*wordList.length)];
-    //this will reset our game
-    function resetGame(){
-        remainingGuesses = maxGuesses; //resets guess amount
-        //select a random word
-        randomWord = wordList[Math.floor(Math.random()*wordList.length)];
-        console.log(randomWord);
-        //clear out letter guesses & our guesses against word
-        guessLog = [];
-        guessingWord = [];
-        for (i = 0; i < wordList[wordIndex].length; i++){
-            guessingWord.push("_")
-        }
-        updateDisplay();
-    };
-
-    function updateDisplay(){
-        document.getElementById("win-count").innerHTML = ("Wins: " + wins);
-        document.getElementById("loss-count").innerHTML = ("Losses: " + losses);
-        document.getElementById("comp-word").innerHTML = "";
-        for (var i = 0; i < guessingWord.length; i++) {
-            document.getElementById("comp-word").innerHTML += guessingWord[i];
-        };
-        document.getElementById("numOfGuessesLeft").innerHTML = remainingGuesses;
-        document.getElementById("you-guessed").innerHTML = guessLog;
-        if (remainingGuesses <= 0){
-            hasFinished = true;
-        }
-    };
-
-    function evaluateGuess(letter) {
-        var positions = [];
-
-        for (var i = 0; i < wordList[wordIndex].length; i++){
-            if(wordList[wordIndex][i] === letter) {
-                positions.push(i);
-         }
+    console.log(randomWord);
+    remainingGuesses = maxGuesses;
+    wordIndex = randomWord;
+    guessLog = [];
+    guessingWord = [];
+    for (i = 0; i < wordList[wordIndex].length; i++){
+        guessingWord.push("_")
     }
-        if (positions.length <= 0){
-        remainingGuesses--;
-        } else {
-            for(var i = 0; i < positions.length; i++){
-            guessingWord[positions[i]] = letter;
-        }
-    }
-};
-
-    function checkWin(){
-        if(guessingWord.indexOf("_") === -1) {
-            wins++;
-            hasFinished = true;
-            alert("Nice Job!")
-        }
+    updateDisplay();
     };
 
-    function checkLoss(){
-        if(remainingGuesses <= 0) {
-            hasFinished = true;
-            alert("You Lose!")
-        }
-    };
-
-    function makeGuess(letter){
-        if(remainingGuesses > 0) {
-            if (guessLog.indexOf(letter)=== -1){
-                guessLog.push(letter);
-            evaluateGuess(letter);
-                }
-            }
-            updateDisplay();
-            checkWin();
-        };
-
-
+    
 //click/key handlers
     //onkeyup save userGuess
+
     document.onkeyup = function(event){
+        var userGuess = event.key.toUpperCase();
+
         if(hasFinished){
-            resetGame();
+            reset();
             hasFinished = false;
         } else if (event.keyCode >= 65 && event.keyCode <=90) {
-        makeGuess(event.key.toLocaleUpperCase());
+        console.log(userGuess);
+        makeGuess();
+        evaluateGuess();
         updateDisplay();
-        checkWin();
         };
 
 
-}
 };
