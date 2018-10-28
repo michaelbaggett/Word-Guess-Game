@@ -36,6 +36,13 @@ function gameStart(){
         console.log(guessingWord);
     }
     document.getElementById("comp-word").innerHTML = guessingWord.join(" ");
+    document.getElementById("win-count").innerHTML = ("Wins: " + wins);
+    document.getElementById("loss-count").innerHTML = ("Losses: " + losses);
+    document.getElementById("numOfGuessLeft").innerHTML = ("Guesses left: " +remainingGuesses);
+
+};
+
+function checkAnswer (){
 
 };
 //function definitions
