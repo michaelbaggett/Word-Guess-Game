@@ -1,5 +1,5 @@
 //variables:
-
+window.onload = function() {
     //directions of press any letter to play
     //array of words
     //blanks representing letters in selected word
@@ -9,7 +9,9 @@
     var wordList = [
         "one",
         "two",
-        "three"
+        "three",
+        "four",
+        "twenty",
     ];  //holds our array of words
     var guessLog = [];  //holds our user guesses
     var wordIndex = 0;
@@ -42,9 +44,30 @@ function gameStart(){
 
 };
 
-function checkAnswer (){
+function checkAnswer(letter){
+    var letterInWord = false;
 
+    for(var l = 0; l < wordIndex; l++) {
+  
+      if (letter == randomWord[j]) {
+        letterInWord = true;
+      }
+    }
+   
+    if (letterInWord) {
+      for(var l = 0; l < wordIndex; l++) {
+        if (randomWord[j] == letter) {
+          guessingWord[j] = letter;
+          console.log(output)
+        }         
+      }
+    } else {
+        guessLog.push(letter);
+        remainingGuesses--;
+    }
 };
+
+gameStart();
 //function definitions
     //this will generate our random word
     // function resetGame() {
@@ -64,13 +87,11 @@ function checkAnswer (){
 
     document.onkeyup = function(event){
         var userGuess = event.key.toUpperCase();
-
-        if(hasFinished){
-            reset();
-            hasFinished = false;
-        } else if (event.keyCode >= 65 && event.keyCode <=90) {
+        
+        if (event.keyCode >= 65 && event.keyCode <=90) {
         console.log(userGuess);
         };
 
 
+}
 };
