@@ -39,6 +39,7 @@ window.onload = function() {
         for (i = 0; i < wordList[wordIndex].length; i++){
             guessingWord.push("_")
         }
+        updateDisplay();
     };
 
 
@@ -46,9 +47,11 @@ window.onload = function() {
 //click/key handlers
     //onkeyup save userGuess
     document.onkeyup = function(event){
+        if (event.keyCode >= 65 && event.keyCode <=90){
         userGuess = event.key.toUpperCase();
         //console.log(userGuess);
         guessLog.push(userGuess);
+        }
 
         // if (userGuess !== wordList) {
         //     guessesLeft--;
@@ -57,7 +60,7 @@ window.onload = function() {
         // }
     //display user letter guess to page
     lettersGuessed.innerHTML = ("You have guessed: " + guessLog);
-    //guessAmount.innerHTML = ("You have " + guessesLeft + " guesses remaining");
+    guessAmount.innerHTML = ("You have " + guessesLeft + " guesses remaining");
     //compare user guess to letters in random word
     //if letter matches letter in word, replace space with letter
     //if letter doesnt match, amount of guesses remaining goes down by 1
