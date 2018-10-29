@@ -82,10 +82,12 @@ function internalGameplay() {
         wins++;
         console.log(wins);
         document.getElementById("win-count").innerHTML = ("Wins: " + wins);
+        alert("You win!")
         gameStart();
     } else if (remainingGuesses === 0) {
         losses++;
         document.getElementById("loss-count").innerHTML = ("Losses: " + losses)
+        alert("You lose!")
         gameStart();
     }
 

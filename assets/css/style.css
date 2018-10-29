@@ -1,0 +1,40 @@
+body, html {
+    height: 100%;
+ 
+    /* The image used */
+    background-image: url("../music2.jpg");
+
+    /* Full height */
+    height: 100%; 
+
+    /* Center and scale the image nicely */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.jumbotron {
+    background: #F0780E;
+    font-family: Playfair Display;
+    opacity: .75;
+}
+
+.container {
+    box-sizing: border-box;
+    text-align: center;
+}
+
+.container-fluid {
+    font-family: CrimsonText;
+}
+.row {
+    background: clear;
+    padding: 50px;
+    border: 5px solid black;
+    text-align: center;
+}
+.col {
+    background: gold;
+    text-align: center;
+    border: 5px solid black;
+}
