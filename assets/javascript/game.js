@@ -19,6 +19,7 @@ window.onload = function() {
     var wins = 0;   //number of wins
     var losses = 0; //number of losses
     var guessingWord = [];  //array in which we build the word to match computer word
+    var randomWord = wordList[Math.floor(Math.random()*wordList.length)].toUpperCase();
 
 function gameStart(){    
     randomWord = wordList[Math.floor(Math.random()*wordList.length)].toUpperCase();
@@ -77,8 +78,9 @@ function internalGameplay() {
 
 
     //turns word to string, checks user guess string against random word string
-    if (guessingWord.toString() === randomWord.toString()) {
+    if (guessingWord.join("") === randomWord) {
         wins++;
+        console.log(wins);
         document.getElementById("win-count").innerHTML = ("Wins: " + wins);
         gameStart();
     } else if (remainingGuesses === 0) {
