@@ -21,7 +21,7 @@ window.onload = function() {
     var guessingWord = [];  //array in which we build the word to match computer word
 
 function gameStart(){    
-    var randomWord = wordList[Math.floor(Math.random()*wordList.length)];
+    randomWord = wordList[Math.floor(Math.random()*wordList.length)];
     guessingWord = randomWord.split("");
     wordIndex = guessingWord.length;
 
@@ -49,16 +49,16 @@ function checkAnswer(letter){
 
     for(var l = 0; l < wordIndex; l++) {
   
-      if (letter == randomWord[j]) {
+      if (letter === randomWord[l]) {
         letterInWord = true;
       }
     }
    
     if (letterInWord) {
       for(var l = 0; l < wordIndex; l++) {
-        if (randomWord[j] == letter) {
-          guessingWord[j] = letter;
-          console.log(output)
+        if (randomWord[l] === letter) {
+          guessingWord[l] = letter;
+          console.log(guessingWord)
         }         
       }
     } else {
@@ -68,30 +68,41 @@ function checkAnswer(letter){
 };
 
 gameStart();
-//function definitions
-    //this will generate our random word
-    // function resetGame() {
-    // var randomWord = wordList[Math.floor(Math.random()*wordList.length)];
-    // console.log(randomWord);
-    // wordIndex = randomWord;
-    // guessLog = [];
-    // guessingWord = [];
-    // for (i = 0; i < wordList[wordIndex].length; i++){
-    //     guessingWord.push("_")
-    // }
-    // };
+
+function internalGameplay() {
+    document.getElementById("numOfGuessLeft").innerHTML = ("Guesses left: " +remainingGuesses);
+    document.getElementById("you-guessed").innerHTML = ("You have guessed: " +  guessLog);
+    document.getElementById("comp-word").innerHTML = guessingWord.join(" ");
+
+    if (randomWord.toString() === guessingWord.toString()){
+        wins++;
+        document.getElementById("win-count").innerHTML = ("Wins: " + wins);
+        gameStart();
+    } else if (remainingGuesses === 0) {
+        losses++;
+        document.getElementById("loss-count").innerHTML = ("Losses: " + losses)
+        gameStart();
+    }
+
+    };
+
+
+
 
 
 //click/key handlers
     //onkeyup save userGuess
 
     document.onkeyup = function(event){
-        var userGuess = event.key.toUpperCase();
+        var userGuess = event.key.toLocaleLowerCase();
         
-        if (event.keyCode >= 65 && event.keyCode <=90) {
+        if (event.keyCode >= 65 && event.keyCode <=90){
         console.log(userGuess);
-        };
+        checkAnswer(userGuess);
+        internalGameplay();
+        }
+    }
 
 
-}
+
 };
