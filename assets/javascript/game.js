@@ -75,6 +75,8 @@ function internalGameplay() {
     document.getElementById("you-guessed").innerHTML = ("You have guessed: " +  guessLog);
     document.getElementById("comp-word").innerHTML = guessingWord.join(" ");
 
+
+    //turns word to string, checks user guess string against random word string
     if (guessingWord.toString() === randomWord.toString()) {
         wins++;
         document.getElementById("win-count").innerHTML = ("Wins: " + wins);
