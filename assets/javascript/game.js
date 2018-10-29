@@ -21,7 +21,7 @@ window.onload = function() {
     var guessingWord = [];  //array in which we build the word to match computer word
 
 function gameStart(){    
-    randomWord = wordList[Math.floor(Math.random()*wordList.length)];
+    randomWord = wordList[Math.floor(Math.random()*wordList.length)].toUpperCase();
     guessingWord = randomWord.split("");
     wordIndex = guessingWord.length;
 
@@ -45,6 +45,7 @@ function gameStart(){
 };
 
 function checkAnswer(letter){
+
     var letterInWord = false;
 
     for(var l = 0; l < wordIndex; l++) {
@@ -58,7 +59,7 @@ function checkAnswer(letter){
       for(var l = 0; l < wordIndex; l++) {
         if (randomWord[l] === letter) {
           guessingWord[l] = letter;
-          console.log(guessingWord)
+          //console.log(guessingWord)
         }         
       }
     } else {
@@ -74,7 +75,7 @@ function internalGameplay() {
     document.getElementById("you-guessed").innerHTML = ("You have guessed: " +  guessLog);
     document.getElementById("comp-word").innerHTML = guessingWord.join(" ");
 
-    if (randomWord.toString() === guessingWord.toString()){
+    if (guessingWord.toString() === randomWord.toString()) {
         wins++;
         document.getElementById("win-count").innerHTML = ("Wins: " + wins);
         gameStart();
@@ -94,10 +95,10 @@ function internalGameplay() {
     //onkeyup save userGuess
 
     document.onkeyup = function(event){
-        var userGuess = event.key.toLocaleLowerCase();
+        var userGuess = event.key.toUpperCase();
         
         if (event.keyCode >= 65 && event.keyCode <=90){
-        console.log(userGuess);
+        //console.log(userGuess);
         checkAnswer(userGuess);
         internalGameplay();
         }
