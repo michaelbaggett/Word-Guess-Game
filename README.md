@@ -9,12 +9,12 @@ Guess a composer correctly and hear one of their works!
   to spend time uplaoding them simply for them not to be heard
   
   List of Composers & Corresponding musical pieces:
-  Rachmaninoff - Zdes' khorosho (How Fair This Spot) op21#7 --this is currently heard upon user win--
-  Barber - Adagio for Strings
-  Mozart - Overture from "Die Zauberflote" (The Magic Flute)
-  Vaughan Williams - Five Variants of 'Dives and Lazarus'
-  --these audio files not yet included
-  Verdi - Triumphal March from "Aida"
-  Chopin - Nocturne #2 in E-Flat op9#2
-  Bach - Cello Suite 1 in GMajor
+  Rachmaninoff - Zdes' khorosho (How Fair This Spot) op21#7 --this is currently heard upon user win--<br>
+  Barber - Adagio for Strings<br>
+  Mozart - Overture from "Die Zauberflote" (The Magic Flute)<br>
+  Vaughan Williams - Five Variants of 'Dives and Lazarus'<br>
+  --these audio files not yet included<br>
+  Verdi - Triumphal March from "Aida"<br>
+  Chopin - Nocturne #2 in E-Flat op9#2<br>
+  Bach - Cello Suite 1 in GMajor<br>
   
