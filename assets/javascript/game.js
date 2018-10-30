@@ -7,11 +7,12 @@ window.onload = function() {
     const maxGuesses = 10; //user max guesses
     
     var wordList = [
-        "one",
-        "two",
-        "three",
-        "four",
-        "twenty",
+        "barber",
+        "mozart",
+        "vaughanwilliams",
+        "verdi",
+        "chopin",
+        "rachmaninoff",
     ];  //holds our array of words
     var guessLog = [];  //holds our user guesses
     var wordIndex = 0;
@@ -20,7 +21,10 @@ window.onload = function() {
     var losses = 0; //number of losses
     var guessingWord = [];  //array in which we build the word to match computer word
     var randomWord = wordList[Math.floor(Math.random()*wordList.length)].toUpperCase();
-    var music1 = new Audio("barber.mp3");
+    var rachmaninoff = new Audio("rachmaninoff.mp3");
+    var barber = new Audio("barber.mp3");
+    var mozart = new Audio("mozart.mp3");
+    var vaughanwilliams = new Audio("vw.mp3")
 
 function gameStart(){    
     randomWord = wordList[Math.floor(Math.random()*wordList.length)].toUpperCase();
@@ -70,6 +74,8 @@ function checkAnswer(letter){
     }
 };
 
+
+
 gameStart();
 
 
@@ -84,9 +90,9 @@ function internalGameplay() {
         wins++;
         console.log(wins);
         document.getElementById("win-count").innerHTML = ("Wins: " + wins);
-        music1.play();
+        play();
         alert("You win!");
-        //gameStart();
+        gameStart();
     } else if (remainingGuesses === 0) {
         losses++;
         document.getElementById("loss-count").innerHTML = ("Losses: " + losses)
@@ -113,6 +119,20 @@ function internalGameplay() {
         }
     }
 
+    //something is wrong here :) max call stack exceeded. not sure how to fix
+function play() {
+    if (randomWord = "rachmaninoff"){
+        rachmaninoff.play();
+    }
+    //     console.log(play())
+    //  } else if (randomWord = "mozart"){
+    //     mozart.play();
+    //     console.log(play())
+    // } else if (randomWord = "vaughanwilliams"){
+    //     vaughanwilliams.play()
+    // } else if (randomWord = "barber"){
+    //     barber.play();
+    // }
 
-
+    }
 };
