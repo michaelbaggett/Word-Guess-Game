@@ -1,5 +1,5 @@
 # Word-Guess-Game
-Try your hand [here]("https://michaelbaggett.github.io/Word-Guess-Game/")
+Try your hand [here](https://michaelbaggett.github.io/Word-Guess-Game/)
 
 Guess a composer correctly and hear one of their works!
   --note--the audio play function does not work correctly, and it has not been yet fixed. 
@@ -8,7 +8,7 @@ Guess a composer correctly and hear one of their works!
   to iron out to audioplay function kink. With that said, mp3s are limited as I didn't want
   to spend time uplaoding them simply for them not to be heard
   
-  List of Composers & Corresponding musical pieces:
+  List of Composers & Corresponding musical pieces:<br>
   Rachmaninoff - Zdes' khorosho (How Fair This Spot) op21#7 --this is currently heard upon user win--<br>
   Barber - Adagio for Strings<br>
   Mozart - Overture from "Die Zauberflote" (The Magic Flute)<br>
