@@ -20,6 +20,7 @@ window.onload = function() {
     var losses = 0; //number of losses
     var guessingWord = [];  //array in which we build the word to match computer word
     var randomWord = wordList[Math.floor(Math.random()*wordList.length)].toUpperCase();
+    var music1 = new Audio("barber.mp3");
 
 function gameStart(){    
     randomWord = wordList[Math.floor(Math.random()*wordList.length)].toUpperCase();
@@ -71,6 +72,7 @@ function checkAnswer(letter){
 
 gameStart();
 
+
 function internalGameplay() {
     document.getElementById("numOfGuessLeft").innerHTML = ("Guesses left: " +remainingGuesses);
     document.getElementById("you-guessed").innerHTML = ("You have guessed: " +  guessLog);
@@ -82,8 +84,9 @@ function internalGameplay() {
         wins++;
         console.log(wins);
         document.getElementById("win-count").innerHTML = ("Wins: " + wins);
-        alert("You win!")
-        gameStart();
+        music1.play();
+        alert("You win!");
+        //gameStart();
     } else if (remainingGuesses === 0) {
         losses++;
         document.getElementById("loss-count").innerHTML = ("Losses: " + losses)

@@ -30,11 +30,16 @@ body, html {
 .row {
     background: clear;
     padding: 50px;
-    border: 5px solid black;
+    border: 3px groove gold;
     text-align: center;
 }
 .col {
     background: gold;
     text-align: center;
-    border: 5px solid black;
+    border: 2px solid;
+}
+
+#numOfGuessLeft {
+    margin-top: 25px;
+    }
 }
