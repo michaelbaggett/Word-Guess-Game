@@ -13,6 +13,7 @@ window.onload = function() {
         "verdi",
         "chopin",
         "rachmaninoff",
+        "bach",
     ];  //holds our array of words
     var guessLog = [];  //holds our user guesses
     var wordIndex = 0;
