@@ -1,4 +1,8 @@
 //variables:
+var rachmaninoff = new Audio("rachmaninoff.mp3");
+var barber = new Audio("barber.mp3");
+var mozart = new Audio("mozart.mp3");
+var vaughanwilliams = new Audio("vw.mp3")
 window.onload = function() {
     //directions of press any letter to play
     //array of words
@@ -22,10 +26,7 @@ window.onload = function() {
     var losses = 0; //number of losses
     var guessingWord = [];  //array in which we build the word to match computer word
     var randomWord = wordList[Math.floor(Math.random()*wordList.length)].toUpperCase();
-    var rachmaninoff = new Audio("rachmaninoff.mp3");
-    var barber = new Audio("barber.mp3");
-    var mozart = new Audio("mozart.mp3");
-    var vaughanwilliams = new Audio("vw.mp3")
+
 
 function gameStart(){    
     randomWord = wordList[Math.floor(Math.random()*wordList.length)].toUpperCase();
@@ -122,18 +123,25 @@ function internalGameplay() {
 
     //something is wrong here :) max call stack exceeded. not sure how to fix
 function play() {
-    if (randomWord = "rachmaninoff"){
+    console.log(randomWord);
+    rachmaninoff.pause();
+    rachmaninoff.currentTime = 0;
+    barber.pause();
+    barber.currentTime = 0;
+    mozart.pause();
+    mozart.currentTime = 0;
+    vaughanwilliams.pause();
+    vaughanwilliams.currentTime = 0;
+    randomWord = randomWord.toLowerCase()
+    if (randomWord === "rachmaninoff"){
         rachmaninoff.play();
+     } else if (randomWord === "mozart"){
+        mozart.play();
+    } else if (randomWord === "vaughanwilliams"){
+        vaughanwilliams.play()
+    } else if (randomWord === "barber"){
+        barber.play();
     }
-    //     console.log(play())
-    //  } else if (randomWord = "mozart"){
-    //     mozart.play();
-    //     console.log(play())
-    // } else if (randomWord = "vaughanwilliams"){
-    //     vaughanwilliams.play()
-    // } else if (randomWord = "barber"){
-    //     barber.play();
-    // }
 
     }
 };
