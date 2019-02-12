@@ -9,9 +9,9 @@ window.onload = function() {
 
 $("#play").click(function() {
   event.preventDefault();
-  gameStart();
-  setTimeout(playMusic, 1000);
   $("button").hide();
+  gameStart();
+  //play();
 });
 //directions of press any letter to play
 //array of words
@@ -92,21 +92,21 @@ function internalGameplay() {
   document.getElementById("numOfGuessLeft").innerHTML =
     "Guesses left: " + remainingGuesses;
   document.getElementById("you-guessed").innerHTML =
-    "You have guessed: " + guessLog;
+    "Incorrect Guesses: " + guessLog;
   document.getElementById("comp-word").innerHTML = guessingWord.join(" ");
 
   //turns word to string, checks user guess string against random word string
   if (guessingWord.join("") === randomWord) {
     wins++;
     document.getElementById("win-count").innerHTML = "Wins: " + wins;
-    document.getElementById("win-count").append =
-      "You win! Press any letter to play again";
-    gameStart();
+    $("button").show();
+    $("button").text("Play Again?");
   } else if (remainingGuesses === 0) {
     losses++;
     document.getElementById("loss-count").innerHTML = "Losses: " + losses;
-    document.getElementById("loss-count").append = "You lose!";
-    gameStart();
+    $("#you-guessed").empty();
+    $("button").show();
+    $("button").text("Play Again?");
   }
 }
 
@@ -133,7 +133,15 @@ function loadMusic() {
   vaughanwilliams.currentTime = 0;
 }
 
-function playMusic() {
+function play() {
+  rachmaninoff.pause();
+  rachmaninoff.currentTime = 0;
+  barber.pause();
+  barber.currentTime = 0;
+  mozart.pause();
+  mozart.currentTime = 0;
+  vaughanwilliams.pause();
+  vaughanwilliams.currentTime = 0;
   randomWord = randomWord.toLowerCase();
   if (randomWord === "rachmaninoff") {
     rachmaninoff.play();
