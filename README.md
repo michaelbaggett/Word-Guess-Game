@@ -1,4 +1,4 @@
-# Word-Guess-Game
+# Guess Who: Classical Music Edition
 Try your hand [here](https://michaelbaggett.github.io/Word-Guess-Game/)
 
 Guess a composer correctly and hear one of their works!
